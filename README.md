@@ -8,6 +8,23 @@ Production-grade ecommerce shopping assistant deployed on Google Kubernetes Engi
 
 ![Architecture Diagram](docs/architecture-diagram.svg)
 
+## Live Demo Screenshots
+
+### Chat UI with Suggestion Chips
+![Chat UI Landing](docs/screenshots/01-chat-ui-landing.png)
+
+### Browse All Categories
+![Browse Categories](docs/screenshots/02-browse-categories.png)
+
+### Deals and Discounts
+![Deals On Sale](docs/screenshots/03-deals-on-sale.png)
+
+### Product Search Results
+![Sports Gear Search](docs/screenshots/04-sports-gear-search.png)
+
+### 24/24 Verification Passed
+![Verification Report](docs/screenshots/05-verification-24-passed.png)
+
 ## What This Demonstrates
 
 | Skill | Implementation |
@@ -60,7 +77,7 @@ gke-retail-chatbot/
     ├── PROJECT_DOCUMENTATION.md   # Complete build documentation
     ├── ARCHITECTURE.md            # Decision records
     ├── BUILD_GUIDE.md             # Step-by-step commands
-    ├── QA_GUIDE.md                # Interview prep
+    ├── QA_GUIDE.md                # Project Q&A
     └── architecture-diagram.svg   # System diagram
 ```
 
