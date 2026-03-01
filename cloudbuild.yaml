@@ -1,0 +1,24 @@
+﻿substitutions:
+  _REGION: us-central1
+  _REPO: chatbot-repo
+  _IMAGE: retail-chatbot
+  _CLUSTER: retail-chatbot-cluster
+
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_IMAGE}:$SHORT_SHA",
+           "-t", "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_IMAGE}:latest", "."]
+
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "--all-tags", "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_IMAGE}"]
+
+  - name: "gcr.io/cloud-builders/gke-deploy"
+    args: ["run", "--filename=k8s/", "--image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_IMAGE}:$SHORT_SHA",
+           "--location=${_REGION}", "--cluster=${_CLUSTER}"]
+
+images:
+  - "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_IMAGE}:$SHORT_SHA"
+  - "${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_IMAGE}:latest"
+
+options:
+  logging: CLOUD_LOGGING_ONLY

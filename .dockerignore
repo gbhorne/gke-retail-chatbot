@@ -1,0 +1,10 @@
+﻿.git
+__pycache__
+*.pyc
+.env
+docs/
+tests/
+scripts/
+data/
+*.md
+LICENSE

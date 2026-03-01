@@ -1,0 +1,12 @@
+﻿apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: retail-chatbot-ingress
+  annotations:
+    kubernetes.io/ingress.class: "gce"
+spec:
+  defaultBackend:
+    service:
+      name: retail-chatbot-svc
+      port:
+        number: 80

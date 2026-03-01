@@ -1,0 +1,14 @@
+﻿apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: retail-chatbot-config
+data:
+  project-id: "gke-retail-chatbot"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: retail-chatbot-secrets
+type: Opaque
+stringData:
+  google-api-key: "REPLACE_WITH_YOUR_AI_STUDIO_KEY"
